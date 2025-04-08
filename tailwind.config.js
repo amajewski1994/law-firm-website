@@ -7,9 +7,25 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'hero-pattern': "url('/public/bg-image.jpg')",
-      }
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        text: 'var(--color-text)',
+        background: 'var(--color-bg)',
+      },
+      fontFamily: {
+        main: 'var(--font-main)',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0, transform: 'translateY(32px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-out forwards',
+      },
     },
   },
   plugins: [

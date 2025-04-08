@@ -1,0 +1,21 @@
+import React from 'react';
+
+const Picture = ({ data, alt, className = '' }) => {
+    if (!data) return null;
+    return (
+        <picture>
+            <img
+                src={data}
+                alt={alt}
+                loading="lazy"
+                style={{
+                    // backgroundImage: `url(${data.placeholder})`,
+                    backgroundSize: 'cover',
+                }}
+                className={`${className} transition-opacity duration-700`}
+            />
+        </picture>
+    );
+};
+
+export default Picture;
