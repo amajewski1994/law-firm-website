@@ -19,6 +19,10 @@ body {
     scroll-behavior: smooth;
 }
 
+.text-shadow {
+    text-shadow: 1px 1px 1px black;
+}
+
 :root {
     --color-primary: #1E3A8A;
     --color-secondary: #64748B;

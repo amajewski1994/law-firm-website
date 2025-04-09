@@ -12,7 +12,7 @@ const Navigation = () => {
     }, []);
     return (
         <nav
-            className={`sticky top-0 left-0 w-full z-50 px-6 py-4 flex justify-center gap-8 transition-all duration-300 ${scrolled ? "bg-white/90 shadow-lg backdrop-blur" : "bg-white shadow"
+            className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-center gap-8 transition-all duration-300 ${scrolled ? "bg-white/90 shadow-lg backdrop-blur" : "bg-white shadow"
                 }`}
         >
             <a href="#about" className="text-[var(--color-primary)] font-semibold hover:underline">O nas</a>

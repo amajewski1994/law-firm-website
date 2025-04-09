@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-const Section = ({ id, children, customClasses }) => {
+const Section = ({ id, children, heroSection = false }) => {
     const ref = useRef();
     const [visible, setVisible] = useState(false);
 
@@ -22,7 +22,7 @@ const Section = ({ id, children, customClasses }) => {
         <section
             id={id}
             ref={ref}
-            className={`scroll-mt-24 py-20 px-6 transition-all duration-700 ease-out will-change-transform ${customClasses} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            className={`scroll-mt-24 transition-all duration-700 ease-out will-change-transform ${heroSection ? 'h-screen' : 'py-20 px-6'} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
         >
             {children}

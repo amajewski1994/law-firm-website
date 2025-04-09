@@ -26,6 +26,9 @@ export default {
       animation: {
         fadeIn: 'fadeIn 1s ease-out forwards',
       },
+      backgroundImage: {
+        'hero': "url('./assets/hero.jpg?format=webp')",
+      },
     },
   },
   plugins: [
