@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Picture = ({ data, alt, className = '' }) => {
+const Picture = ({ data, alt, className = '', style = {} }) => {
     if (!data) return null;
     return (
         <picture>
@@ -11,6 +11,7 @@ const Picture = ({ data, alt, className = '' }) => {
                 style={{
                     // backgroundImage: `url(${data.placeholder})`,
                     backgroundSize: 'cover',
+                    ...style
                 }}
                 className={`${className} transition-opacity duration-700`}
             />
