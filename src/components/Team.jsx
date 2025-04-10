@@ -1,30 +1,32 @@
 import React from 'react'
 import Section from "../shared/Section";
 import Picture from '../shared/Picture';
-import about from '../assets/hero.jpg?format=webp';
+import team_0 from '../assets/team_0.jpg?format=webp';
+import team_1 from '../assets/team_1.jpg?format=webp';
+import team_2 from '../assets/team_2.jpg?format=webp';
 
 const DUMMY_TEAM = [
     {
         id: 0,
-        name: 'John Doe',
+        name: 'Jane Doe',
         role: 'Radca prawny',
-        image: about
+        image: team_0
     }, {
         id: 1,
-        name: 'Jane Doe',
+        name: 'Jack Doe',
         role: 'Adwokat',
-        image: about
+        image: team_1
     }, {
         id: 2,
-        name: 'Jack Doe',
+        name: 'Joanne Doe',
         role: 'Prawnik',
-        image: about
+        image: team_2
     }
 ]
 
 const Team = () => {
     return (
-        <Section id="team">
+        <Section id="team" background={'bg-[#fefcf9]'}>
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl font-semibold text-center mb-12">Zespół</h2>
                 <div className="grid md:grid-cols-3 gap-8 text-center">

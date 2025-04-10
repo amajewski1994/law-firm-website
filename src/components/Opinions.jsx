@@ -78,7 +78,17 @@ const Opinions = () => {
 
 
     return (
-        <Section background='bg-slate-200'>
+        <Section background='bg-gradient-to-r from-slate-50 to-white'>
+            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+                <svg
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="w-full h-24 fill-[#fefcf9]"
+                >
+                    <path d="M0,0V46.29c47.61,22,98.52,29,146.77,14.44C230.92,36,284,0,339.59,0s108.18,36,166.24,50.73C627.4,77,684.15,54,739.6,29.87,796.64,5,851.14-8.87,900,6.25c42.61,13.45,79.25,38.62,120,50.73V0Z" />
+                </svg>
+            </div>
+
             <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl font-semibold mb-12">Opinie klientów</h2>
 

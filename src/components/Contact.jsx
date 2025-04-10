@@ -11,7 +11,7 @@ const Contact = () => {
     };
 
     return (
-        <Section id="contact">
+        <Section id="contact" background={'bg-[#f9f9f6]'}>
             <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl font-semibold mb-8">Kontakt</h2>
 
@@ -44,7 +44,7 @@ const Contact = () => {
                         </button>
                     </form>
                 )}
-                
+
                 <div className="w-full h-80 rounded-2xl overflow-hidden shadow-lg">
                     <iframe
                         title="Mapa kancelarii"

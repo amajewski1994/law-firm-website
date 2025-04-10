@@ -6,7 +6,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 const Hero = () => {
     return (
-        <Section id='hero' heroSection={true}>
+        <Section id='hero' heroSection={true} background={'bg-gradient-to-b from-white to-slate-50'}>
             <div className='h-full w-full bg-hero bg-cover bg-center brightness-75'></div>
             <div className='absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-1/2 pl-8 border-l-4 border-accent py-4'>
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-accent text-shadow">Twoje <br />Bezpieczeństwo <br />Prawne</h1>
