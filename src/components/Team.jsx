@@ -1,7 +1,26 @@
 import React from 'react'
 import Section from "../shared/Section";
 import Picture from '../shared/Picture';
-import team from '../assets/team-placeholder.jpg?w=300&format=webp';
+import about from '../assets/hero.jpg?format=webp';
+
+const DUMMY_TEAM = [
+    {
+        id: 0,
+        name: 'John Doe',
+        role: 'Radca prawny',
+        image: about
+    }, {
+        id: 1,
+        name: 'Jane Doe',
+        role: 'Adwokat',
+        image: about
+    }, {
+        id: 2,
+        name: 'Jack Doe',
+        role: 'Prawnik',
+        image: about
+    }
+]
 
 const Team = () => {
     return (
@@ -9,16 +28,12 @@ const Team = () => {
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl font-semibold text-center mb-12">Zespół</h2>
                 <div className="grid md:grid-cols-3 gap-8 text-center">
-                    {[
-                        { name: "Anna Wojtas", role: "Radca prawny" },
-                        { name: "Michał Nowak", role: "Adwokat" },
-                        { name: "Katarzyna Zielińska", role: "Aplikant radcowski" },
-                    ].map((member, idx) => (
+                    {DUMMY_TEAM.map((member, idx) => (
                         <div
                             key={idx}
                             className="bg-white p-6 rounded-2xl shadow transition-transform hover:scale-105 hover:shadow-lg"
                         >
-                            <Picture data={team} alt={member.name} className="w-24 h-24 object-cover rounded-full mx-auto mb-4" />
+                            <Picture data={member.image} alt={member.name} className="w-full h-96 object-cover rounded-md mx-auto mb-4" />
                             <h3 className="text-lg font-medium">{member.name}</h3>
                             <p className="text-sm text-gray-500">{member.role}</p>
                         </div>
