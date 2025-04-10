@@ -45,6 +45,7 @@ const Opinions = () => {
         }
         intervalRef.current = setInterval(() => {
             setActiveIndex((prev) => (prev + 1));
+            setTransitioning(true);
         }, 5000);
     };
 
