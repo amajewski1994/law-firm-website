@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Section from "../shared/Section";
+import Button from '../shared/Button';
 
 const Contact = () => {
     const [formSent, setFormSent] = useState(false);
@@ -39,9 +40,7 @@ const Contact = () => {
                             placeholder="Wiadomość"
                             required
                         ></textarea>
-                        <button className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-2xl shadow transition-transform hover:scale-105 active:scale-95 duration-200">
-                            Wyślij
-                        </button>
+                        <Button className={'shadow hover:scale-105 active:scale-95 duration-200'}>Wyślij</Button>
                     </form>
                 )}
 
