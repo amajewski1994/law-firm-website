@@ -8,22 +8,22 @@ const DUMMY_OPINIONS = [
     {
         id: 0,
         name: 'Adrian',
-        description: 'Profesjonalizm i skuteczność. Polecam z całego serca!',
+        description: 'Dzięki kancelarii udało się zakończyć moją sprawę spadkową bez stresu i zbędnych formalności. Profesjonalne podejście i świetny kontakt.',
     },
     {
         id: 1,
         name: 'John Doe',
-        description: 'Świetne podejście do klienta! Z pewnością skorzystam ponownie z tej firmy.',
+        description: 'Zespół kancelarii był dostępny na każdym etapie mojej sprawy. Czułam się zaopiekowana i w pełni poinformowana. Polecam z całego serca.',
     },
     {
         id: 2,
         name: 'Jane Doe',
-        description: 'Pełne zaangażowanie w sprawę i konkretne podejście.',
+        description: 'Współpraca z kancelarią była bezproblemowa. Wszystko jasno wyjaśnione, a efekt końcowy lepszy niż się spodziewałem.',
     },
     {
         id: 3,
         name: 'Anna K.',
-        description: 'Zdecydowanie najlepsza kancelaria, z jaką współpracowałam.',
+        description: 'Sprawa rodzinna, którą prowadziła kancelaria, była dla mnie bardzo trudna. Dzięki ich wsparciu przeszłam przez to spokojniej i z pozytywnym wynikiem.',
     },
 ];
 
@@ -81,11 +81,13 @@ const Opinions = () => {
         <Section background='bg-gradient-to-r from-slate-50 to-white'>
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
                 <svg
-                    viewBox="0 0 1200 120"
+                    viewBox="0 0 1440 320"
                     preserveAspectRatio="none"
-                    className="w-full h-24 fill-[#fefcf9]"
+                    className="w-full h-24 fill-slate-50"
                 >
-                    <path d="M0,0V46.29c47.61,22,98.52,29,146.77,14.44C230.92,36,284,0,339.59,0s108.18,36,166.24,50.73C627.4,77,684.15,54,739.6,29.87,796.64,5,851.14-8.87,900,6.25c42.61,13.45,79.25,38.62,120,50.73V0Z" />
+                    <path
+                        d="M0,64L48,74.7C96,85,192,107,288,117.3C384,128,480,128,576,138.7C672,149,768,171,864,181.3C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64V0H0Z"
+                    />
                 </svg>
             </div>
 
@@ -123,18 +125,24 @@ const Opinions = () => {
                         ))}
                     </div>
 
+                    {/* Nawigacja */}
                     <button
                         onClick={handlePrev}
-                        className="absolute top-1/2 left-4 -translate-y-1/2 text-3xl hover:scale-125 transition-transform"
+                        className="absolute top-1/2 left-4 -translate-y-1/2 text-3xl text-secondary hover:text-[var(--color-primary)] transition-all"
                     >
                         <FontAwesomeIcon icon={faCircleLeft} />
                     </button>
                     <button
                         onClick={handleNext}
-                        className="absolute top-1/2 right-4 -translate-y-1/2 text-3xl hover:scale-125 transition-transform"
+                        className="absolute top-1/2 right-4 -translate-y-1/2 text-3xl text-secondary hover:text-[var(--color-primary)] transition-all"
                     >
                         <FontAwesomeIcon icon={faCircleRight} />
                     </button>
+
+                    {/* Aria live dla screen readerów */}
+                    <div aria-live="polite" className="sr-only">
+                        {opinions[activeIndex]?.description}
+                    </div>
                 </div>
 
             </div>

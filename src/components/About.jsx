@@ -1,35 +1,65 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import Section from "../shared/Section";
 import Picture from '../shared/Picture';
+import Button from '../shared/Button';
 import about0 from '../assets/about_0.jpg?format=webp';
 import about1 from '../assets/about_1.jpg?format=webp';
 
 const About = () => {
-
     const [imageOffset, setImageOffset] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setImageOffset(window.scrollY * 0.05);
+            const offset = Math.min(window.scrollY * 0.05, 40);
+            setImageOffset(offset);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <Section id="about" background={'bg-slate-50'}>
-            <div className="max-w-5xl mx-auto flex">
-                <div className='mr-10 h-96 w-1/2 relative'>
-                    <Picture data={about0} alt="O kancelarii" style={{ transform: `translateY(-${imageOffset}px)` }} className={`object-cover rounded-2xl mb-8 absolute left-0 w-3/4 shadow-lg shadow-black`} />
-                    <Picture data={about1} alt="O kancelarii" style={{ transform: `translateY(${imageOffset}px)` }} className="object-cover rounded-2xl mb-8 absolute bottom-0 right-0 w-3/4 shadow-lg shadow-black" />
+        <Section id="about" className="bg-slate-50 relative overflow-hidden">
+            <div className="max-w-5xl mx-auto flex gap-10">
+                {/* Zdjęcia */}
+                <div className="h-96 w-1/2 relative">
+                    <Picture
+                        data={about0}
+                        alt="Zespół kancelarii pracujący nad dokumentami"
+                        style={{
+                            transform: `translateY(-${imageOffset}px)`,
+                            transition: 'transform 0.2s ease-out',
+                        }}
+                        className="object-cover rounded-2xl mb-8 absolute left-0 w-3/4 shadow-lg shadow-black"
+                    />
+                    <Picture
+                        data={about1}
+                        alt="Spotkanie z klientem w kancelarii"
+                        style={{
+                            transform: `translateY(${imageOffset}px)`,
+                            transition: 'transform 0.2s ease-out',
+                        }}
+                        className="object-cover rounded-2xl mb-8 absolute bottom-0 right-0 w-3/4 shadow-lg shadow-black"
+                    />
                 </div>
-                <div className='ml-10 w-1/2'>
+
+                {/* Tekst */}
+                <div className="w-1/2 flex flex-col justify-center opacity-0 animate-fadeInUp [animation-delay:200ms]">
                     <h2 className="text-3xl font-semibold mb-4">O Kancelarii</h2>
-                    <p className="text-lg">Jesteśmy zespołem doświadczonych prawników oferujących kompleksowe usługi prawne. Naszą misją jest zapewnienie klientom poczucia bezpieczeństwa i profesjonalnej obsługi.</p>
+                    <p className="text-lg leading-relaxed mb-4">
+                        Kancelaria Prawna Anna Wojtas to zespół doświadczonych prawników, którzy oferują kompleksowe wsparcie prawne dla klientów indywidualnych i firm. Wyróżnia nas indywidualne podejście, jasna komunikacja oraz zaangażowanie w każdą sprawę.
+                    </p>
+                    <p className="text-lg leading-relaxed">
+                        W naszej pracy stawiamy na skuteczność i przejrzystość. Dbamy o relację z klientem, zapewniając mu pełne zrozumienie sytuacji prawnej i najlepsze możliwe rozwiązania. Jesteśmy tu, aby bronić Twoich interesów i wspierać Cię na każdym etapie.
+                    </p>
+
+                    <Button className="mt-6 animate-fadeInUp [animation-delay:400ms]">
+                        <a href="#team">Poznaj nasz zespół</a>
+                    </Button>
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+            {/* Fala na dole */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180 pointer-events-none">
                 <svg
                     viewBox="0 0 1200 120"
                     preserveAspectRatio="none"
@@ -39,7 +69,7 @@ const About = () => {
                 </svg>
             </div>
         </Section>
-    )
-}
+    );
+};
 
-export default About
+export default About;
