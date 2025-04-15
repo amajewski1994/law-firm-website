@@ -1,33 +1,7 @@
 import React from 'react';
 import Section from "../shared/Section";
 import Picture from '../shared/Picture';
-import team_0 from '../assets/team_0.jpg?format=webp';
-import team_1 from '../assets/team_1.jpg?format=webp';
-import team_2 from '../assets/team_2.jpg?format=webp';
-
-const DUMMY_TEAM = [
-    {
-        id: 0,
-        name: 'Jane Doe',
-        role: 'Radca prawny',
-        image: team_0,
-        description: 'Specjalizuje się w prawie cywilnym oraz sprawach spadkowych. Ceniona za precyzję i podejście indywidualne do klienta.'
-    },
-    {
-        id: 1,
-        name: 'Jack Doe',
-        role: 'Adwokat',
-        image: team_1,
-        description: 'Prowadzi sprawy karne i gospodarcze. Znany z analitycznego myślenia i skuteczności procesowej.'
-    },
-    {
-        id: 2,
-        name: 'Joanne Doe',
-        role: 'Prawnik',
-        image: team_2,
-        description: 'Zajmuje się prawem rodzinnym i prawem pracy. Empatyczna, wspiera klientów w trudnych sytuacjach życiowych.'
-    }
-];
+import { team } from '../data';
 
 const Team = () => {
     return (
@@ -39,7 +13,7 @@ const Team = () => {
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-8 text-center">
-                    {DUMMY_TEAM.map((member, idx) => (
+                    {team.map((member, idx) => (
                         <div
                             key={member.id}
                             className={`opacity-0 animate-fadeInUp [animation-delay:${idx * 150}ms]`}

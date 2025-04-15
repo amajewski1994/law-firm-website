@@ -3,38 +3,16 @@ import Section from "../shared/Section";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faCircleRight, faCircleLeft } from '@fortawesome/free-regular-svg-icons'
-
-const DUMMY_OPINIONS = [
-    {
-        id: 0,
-        name: 'Adrian',
-        description: 'Dzięki kancelarii udało się zakończyć moją sprawę spadkową bez stresu i zbędnych formalności. Profesjonalne podejście i świetny kontakt.',
-    },
-    {
-        id: 1,
-        name: 'John Doe',
-        description: 'Zespół kancelarii był dostępny na każdym etapie mojej sprawy. Czułam się zaopiekowana i w pełni poinformowana. Polecam z całego serca.',
-    },
-    {
-        id: 2,
-        name: 'Jane Doe',
-        description: 'Współpraca z kancelarią była bezproblemowa. Wszystko jasno wyjaśnione, a efekt końcowy lepszy niż się spodziewałem.',
-    },
-    {
-        id: 3,
-        name: 'Anna K.',
-        description: 'Sprawa rodzinna, którą prowadziła kancelaria, była dla mnie bardzo trudna. Dzięki ich wsparciu przeszłam przez to spokojniej i z pozytywnym wynikiem.',
-    },
-];
+import { opinions } from '../data';
 
 const Opinions = () => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [transitioning, setTransitioning] = useState(true);
 
-    const opinions = [
-        DUMMY_OPINIONS[DUMMY_OPINIONS.length - 1],
-        ...DUMMY_OPINIONS,
-        DUMMY_OPINIONS[0],
+    const opinionsArr = [
+        opinions[opinions.length - 1],
+        ...opinions,
+        opinions[0],
     ];
 
     const intervalRef = useRef(null);
@@ -67,12 +45,12 @@ const Opinions = () => {
     };
 
     const handleTransitionEnd = () => {
-        if (activeIndex === opinions.length - 1) {
+        if (activeIndex === opinionsArr.length - 1) {
             setTransitioning(false);
             setActiveIndex(1);
         } else if (activeIndex === 0) {
             setTransitioning(false);
-            setActiveIndex(opinions.length - 2);
+            setActiveIndex(opinionsArr.length - 2);
         }
     };
 
@@ -108,13 +86,13 @@ const Opinions = () => {
                     <div
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: `translateX(-${activeIndex * (100 / opinions.length)}%)`,
+                            transform: `translateX(-${activeIndex * (100 / opinionsArr.length)}%)`,
                             transition: transitioning ? 'transform 0.5s ease-in-out' : 'none',
-                            width: `${opinions.length * 100}%`,
+                            width: `${opinionsArr.length * 100}%`,
                         }}
                         onTransitionEnd={handleTransitionEnd}
                     >
-                        {opinions.map((opinion, index) => (
+                        {opinionsArr.map((opinion, index) => (
                             <div
                                 key={index}
                                 className="w-full"
@@ -141,7 +119,7 @@ const Opinions = () => {
 
                     {/* Aria live dla screen readerów */}
                     <div aria-live="polite" className="sr-only">
-                        {opinions[activeIndex]?.description}
+                        {opinionsArr[activeIndex]?.description}
                     </div>
                 </div>
 

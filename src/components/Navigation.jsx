@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
 import Picture from '../shared/Picture';
 import logo from '../assets/logo.jpg?format=webp';
-
-const navItems = [
-    { label: 'O nas', id: 'about' },
-    { label: 'Specjalizacje', id: 'services' },
-    { label: 'Zespół', id: 'team' },
-    { label: 'Kontakt', id: 'contact' },
-];
+import { navItems } from '../data';
 
 const Navigation = () => {
     const [scrolled, setScrolled] = useState(false);
